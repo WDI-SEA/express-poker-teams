@@ -42,4 +42,32 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.get('/:id/win', (req, res) => {
+    db.player.update(
+        { wins: sequelize.literal('wins + 1') },
+        { where: { teamId: req.params.id }}
+    )
+    .then(() => {
+        res.redirect('/teams')
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
+router.get('/:id/loss', (req, res) => {
+    db.player.update(
+        { losses: sequelize.literal('losses + 1') },
+        { where: { teamId: req.params.id }}
+    )
+    .then(() => {
+        res.redirect('/teams')
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
 module.exports = router
