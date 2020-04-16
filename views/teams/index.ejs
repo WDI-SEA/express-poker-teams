@@ -1,1 +1,17 @@
 <h1>All Teams</h1>
+
+<div class="row">
+    <% teams.forEach(t => { %>
+        <div class="col s4">
+            <p>
+                <%= t.name %>
+            </p>
+            <img src="<%=t.pic%>" alt="team logo" class="responsive-img max200">
+            <div>
+                <a href="/teams/<%=t.id%>" class="btn-small blue lighten-3">Details</a>
+            </div>
+            <a href="/teams/<%=t.id%>/win" class="btn-small green">+ Win</a>
+            <a href="/teams/<%=t.id%>/loss" class="btn-small red">+ Loss</a>
+        </div>
+    <% }) %>
+</div>

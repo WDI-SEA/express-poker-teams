@@ -18,7 +18,8 @@ app.use(express.static('static'))
 app.use(express.urlencoded({ extended: false }))
 
 // Include all routes from routers/controllers
-// TODO!
+app.use('/players', require('./controllers/players'))
+app.use('/teams', require('./controllers/teams'))
 
 // Home route
 app.get('/', (req, res) => {

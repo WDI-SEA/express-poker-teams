@@ -1,1 +1,46 @@
 <h1>Add New Player</h1>
+
+<div class="row">
+    <form class="col s12" method="POST" action="/players">
+        <div class="row">
+            <div class="input-field col s6">
+                <input id="name" name="name" type="text">
+                <label for="name">Name</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="wins" name="wins" type="number" value="0">
+                <label for="wins">Wins</label>
+            </div>
+            <div class="input-field col s3">
+                <input id="losses" name="losses" type="number" value="0">
+                <label for="losses">Losses</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s8">
+                <input id="pic" name="pic" type="url">
+                <label for="pic">Pic</label>
+            </div>
+            <div class="input-field col s4">
+                <select name="teamId">
+                    <option value="" disabled selected>Choose your option</option>
+                    <% teams.forEach(t => { %>
+                        <option value="<%=t.id%>">
+                            <%= t.name %>
+                        </option>
+                    <% }) %>
+                </select>
+                <label>Team</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="bio" name="bio" class="materialize-textarea"></textarea>
+                <label for="bio">Bio</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light green" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>

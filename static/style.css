@@ -9,6 +9,14 @@ h1 {
   font-size: 2.5em;
 }
 
+h2 {
+  font-size: 2.0em;
+}
+
+p {
+  font-size: 1.2em;
+}
+
 .container {
     margin: 0 25px;
 }
@@ -27,4 +35,8 @@ body {
 
 main {
   flex: 1 0 auto;
+}
+
+.max200 {
+  max-height: 200px;
 }

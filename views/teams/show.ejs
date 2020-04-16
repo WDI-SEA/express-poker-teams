@@ -1,3 +1,28 @@
 <h1>Team Detail Page</h1>
 
-<h2>Member List</h2>
+<div class="row">
+    <div class="col s4">
+        <img src="<%=team.pic%>" alt="logo" class="responsive-img">
+    </div>
+    <div class="col s8">
+        <p>
+            <strong>Name:</strong>
+            <%= team.name %>
+        </p>
+        <p>
+            <strong>Description:</strong>
+            <%= team.description %>
+        </p>
+    </div>
+</div>
+
+<h1>Member List!</h1>
+
+<div class="row">
+    <% team.players.forEach(p => { %>
+        <div class="col s4">
+            <p><strong>Name:</strong> <%= p.name %></p>
+            <img src="<%=p.pic%>" alt="player pic" class="responsive-img">
+        </div>
+    <% }) %>
+</div>

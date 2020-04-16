@@ -1,3 +1,18 @@
 <h1>Player Detail</h1>
-
+<p>
+    <strong>Name: </strong> <%= player.name %>
+</p>
+<h2>Record</h2>
+<div class="row">
+    <div class="col s6">
+        <strong>Wins:</strong> <%= player.wins %>
+    </div>
+    <div class="col s6">
+        <strong>Losses:</strong> <%= player.losses %>
+    </div>
+</div>
+<hr>
 <h2>Player's Team</h2>
+<a href="/teams/<%=player.team.id%>">
+    <%= player.team.name %>
+</a>

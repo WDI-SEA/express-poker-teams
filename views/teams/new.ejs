@@ -1,1 +1,25 @@
 <h1>Add New Team</h1>
+
+<div class="row">
+    <form class="col s12" method="POST" action="/teams">
+        <div class="row">
+            <div class="input-field col s4">
+                <input id="name" name="name" type="text">
+                <label for="name">Name</label>
+            </div>
+            <div class="input-field col s8">
+                <input id="pic" name="pic" type="url">
+                <label for="pic">Pic</label>
+            </div>
+        </div>
+        <div class="row">
+            <div class="input-field col s12">
+                <textarea id="description" name="description" class="materialize-textarea"></textarea>
+                <label for="description">Description</label>
+            </div>
+        </div>
+        <button class="btn waves-effect waves-light green" type="submit">Submit
+            <i class="material-icons right">send</i>
+        </button>
+    </form>
+</div>
