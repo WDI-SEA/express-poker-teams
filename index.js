@@ -1,6 +1,7 @@
 // Required node modules
 let express = require('express')
 let layouts = require('express-ejs-layouts')
+let methodOverride = require('method-override')
 
 // Declare express app instance
 let app = express()
@@ -16,6 +17,9 @@ app.use(express.static('static'))
 
 // Use body parser to decode the POST variables
 app.use(express.urlencoded({ extended: false }))
+
+// Set up method-override to look for a querystring attribute (_method)
+app.use(methodOverride('_method'))
 
 // Include all routes from routers/controllers
 app.use('/players', require('./controllers/players'))

@@ -7,7 +7,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   team.associate = function(models) {
     // A team has many players
-    models.team.hasMany(models.player)
+    models.team.hasMany(models.player, {
+      onDelete: 'CASCADE'
+    })
   };
   return team;
 };

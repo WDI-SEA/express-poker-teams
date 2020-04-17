@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
   }, {});
   player.associate = function(models) {
     // A player belongs to a team
-    models.player.belongsTo(models.team)
+    models.player.belongsTo(models.team, { 
+      onDelete: 'CASCADE' 
+    })
   };
   return player;
 };

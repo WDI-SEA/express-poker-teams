@@ -42,6 +42,31 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.delete('/:id', (req, res) => {
+    db.player.destroy({
+        where: { teamId: req.params.id }
+    })
+    .then(() => {
+        // Things worked-players on that team are gone
+        // Safe to delete the team now
+        db.team.destroy({
+            where: { id: req.params.id }
+        })
+        .then(() => {
+            res.redirect('/teams')
+        })
+        .catch(err => {
+            console.log(err)
+            res.render('error')
+        })
+        // End of inner query
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
 router.get('/:id/win', (req, res) => {
     db.player.update(
         { wins: sequelize.literal('wins + 1') },

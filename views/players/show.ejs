@@ -16,3 +16,7 @@
 <a href="/teams/<%=player.team.id%>">
     <%= player.team.name %>
 </a>
+<h2>Actions</h2>
+<form method="POST" action="/players/<%=player.id%>?_method=DELETE">
+    <input type="submit" class="btn-small red" value="Delete Player">
+</form>
