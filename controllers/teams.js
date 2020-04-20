@@ -42,6 +42,21 @@ router.get('/:id', (req, res) => {
     })
 })
 
+router.put('/:id', (req, res) => {
+    console.log('REQUEST BODY', req.body)
+    db.team.update(
+        req.body,
+        { where: { id: req.params.id } }
+    )
+    .then(() => {
+        res.redirect('/teams/' + req.params.id)
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
 router.delete('/:id', (req, res) => {
     db.player.destroy({
         where: { teamId: req.params.id }
@@ -60,6 +75,19 @@ router.delete('/:id', (req, res) => {
             res.render('error')
         })
         // End of inner query
+    })
+    .catch(err => {
+        console.log(err)
+        res.render('error')
+    })
+})
+
+router.get('/:id/edit', (req, res) => {
+    db.team.findOne({
+        where: { id: req.params.id }
+    })
+    .then((team) => {
+        res.render('teams/edit', { team })
     })
     .catch(err => {
         console.log(err)
