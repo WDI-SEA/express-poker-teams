@@ -19,7 +19,7 @@
   "homepage": "https://github.com/WDI-SEA/express-poker-teams#readme",
   "dependencies": {
     "ejs": "^3.0.2",
-    "express": "^4.17.1",
+    "express": "^4.17.3",
     "express-ejs-layouts": "^2.5.0"
   }
 }
